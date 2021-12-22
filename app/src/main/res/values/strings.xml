@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Najda </string>
+    <string name="title_slide1">hello</string>
+    <string name="text_slide1">Lorem ipsum dolor sit amet. Qui voluptatem rerum eos fuga aliquam et odit sequi.
+        Vel eius quas sit fuga corrupti et sint quia et minus consectetur.</string>
+    <string name="navigation_drawer_open">navigation_drawer_open</string>
+    <string name="navigation_drawer_close">navigation_drawer_close</string>
+    <string name="title_slide2">hello2</string>
+    <string name="text_slide2">Lorem ipsum dolor sit amet. Qui voluptatem rerum eos fuga aliquam et odit sequi.
+        Vel eius quas sit fuga corrupti et sint quia et minus consectetur.</string>
+    <string name="title_slide3">hello3</string>
+    <string name="text_slide3">Lorem ipsum dolor sit amet. Qui voluptatem rerum eos fuga aliquam et odit sequi.
+        Vel eius quas sit fuga corrupti et sint quia et minus consectetur.</string>
+
+</resources>
