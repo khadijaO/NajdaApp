@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -16,6 +17,7 @@ public class ProfilActivity extends AppCompatActivity implements NavigationView.
 DrawerLayout drawerLayout;
 NavigationView navigationView;
 Toolbar toolbar;
+MenuItem profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,16 @@ Toolbar toolbar;
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 navigationView.setNavigationItemSelectedListener(this);
+navigationView.setCheckedItem(R.id.nav_home);
+//profile=findViewById(R.id.nav_profile);
+//profile.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//    @Override
+//    public boolean onMenuItemClick(MenuItem menuItem) {
+//        Intent i = new Intent(ProfilActivity.this, userProfile.class);
+//        startActivity(i);
+//        return false;
+//    }
+//});
     }
 
     @Override
@@ -45,7 +57,19 @@ navigationView.setNavigationItemSelectedListener(this);
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+switch (menuItem.getItemId()){
+    case R.id.nav_profile:
+        Intent i = new Intent(ProfilActivity.this, userProfile.class);
+        startActivity(i);
+        break;
+    case R.id.nav_contact:
+        Intent j= new Intent(ProfilActivity.this, UserContact.class);
+        startActivity(j);
+        break;
+default:
 
+
+}
         return true;
     }
 }

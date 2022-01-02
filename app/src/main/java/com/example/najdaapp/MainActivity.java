@@ -6,6 +6,8 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -19,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
 private TextView[]dots;
 private Button start,Login;
 private int numCurrentPage;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,17 +43,13 @@ private int numCurrentPage;
            public void onClick(View view) {
                Intent i=new Intent(getApplicationContext(),LoginActivity.class);
                startActivity(i);
-//               Intent i=new Intent(getApplicationContext(),ProfilActivity.class);
-//                startActivity(i);
+
            }
        });
-//        prevB.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                sliderViewPager.setCurrentItem(numCurrentPage-1);
+
+
+
 //
-//            }
-//        });
     }
     public void addDotsIndicator(int position){
         dots=new TextView[3];
@@ -76,28 +77,6 @@ private int numCurrentPage;
 addDotsIndicator(i);
 
 numCurrentPage=i;
-//if(i==0){
-//    next.setEnabled(true);
-//    prev.setEnabled(false);
-//    prev.setVisibility(View.INVISIBLE);
-//    next.setText("Next");
-//    prev.setText("");
-//}
-//           else if(i==dots.length-1
-//            ){
-//                prev.setEnabled(true);
-//                next.setEnabled(false);
-//                prev.setVisibility(View.VISIBLE);
-//                next.setText("Next");
-//                prev.setText("Previous");
-//            }
-//            else{
-//    prev.setEnabled(true);
-//    next.setEnabled(true);
-//    prev.setVisibility(View.INVISIBLE);
-//    next.setText("Finish");
-//    prev.setText("Back");
-//            }
         }
 
         @Override
@@ -105,7 +84,6 @@ numCurrentPage=i;
 
         }
     };
-//    sliderViewPager.OnPageChangeListener viewListner=new  sliderViewPager.OnPageChangeListener(){
 
     }
 

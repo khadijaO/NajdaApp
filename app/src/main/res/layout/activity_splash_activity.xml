@@ -5,48 +5,52 @@
     android:id="@+id/startscreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dotDisactivated"
+    android:background="@color/colorWhite"
     tools:context=".SplashActivity">
 
-<!--    <com.airbnb.lottie.LottieAnimationView-->
-<!--        android:id="@+id/lottieAnimationView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="400dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.45"-->
-<!--        app:lottie_autoPlay="true"-->
-<!--        app:lottie_rawRes="@raw/anim" />-->
-<!--    <TextView-->
-<!--        android:id="@+id/textView"-->
-<!--        android:layout_width="162dp"-->
-<!--        android:layout_height="62dp"-->
-<!--        android:text="NAJDA "-->
-<!--        android:textColor="@color/splash_green"-->
-<!--        android:textSize="@dimen/font_size"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.618"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.76" />-->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/anim"/>
+<!--        -->
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView2"-->
-<!--        android:layout_width="363dp"-->
-<!--        android:layout_height="54dp"-->
-<!--        android:text="protegervotre monde "-->
-<!--        android:textColor="@color/splash_green"-->
-<!--        android:textSize="@dimen/font_size"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.843" />-->
+    <!--        android:textSize="@dimen/font_size"-->
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="162dp"
+        android:layout_height="62dp"
+        android:text="NAJDA "
+        android:textAlignment="center"
+        android:textColor="@color/splash_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.727" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="416dp"
+        android:layout_height="56dp"
+        android:text="protegervotre monde "
+        android:textAlignment="center"
+        android:textColor="@color/splash_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.573"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
+    <!--    android:textSize="@dimen/font_size"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
