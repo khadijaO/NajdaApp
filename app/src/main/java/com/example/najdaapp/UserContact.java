@@ -9,23 +9,35 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Contacts;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 
 import com.example.najdaapp.contact.ContactModel;
+import com.example.najdaapp.contact.DbHelper;
 
 public class UserContact extends AppCompatActivity {
-Button existing_contact;
-EditText number_contact,name_contact,relation_contact;
+    Button existing_contact,add_contact,reset_form;
+    EditText number_contact, name_contact, relation_contact;
+    String numberContact, nameContact, relationContact;
     private static final int REQUEST_SELECT_CONTACT = 1;
+    DbHelper d;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+                Log.d("hi", "-----------------------");
+        d=new DbHelper(this);
         setContentView(R.layout.activity_user_contact);
+        number_contact = findViewById(R.id.contact_phone);
+        name_contact = findViewById(R.id.contact_name);
 
+        numberContact=number_contact.getText().toString();
+        nameContact=name_contact.getText().toString();
+
+        /*----------------------------   RELATION SPINNER  ---------------------------*/
 //        set relations
-        Spinner spinner = (Spinner) findViewById(R.id.relation_contact);
+        final Spinner spinner = (Spinner) findViewById(R.id.relation_contact);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.relation, android.R.layout.simple_spinner_item);
@@ -33,23 +45,41 @@ EditText number_contact,name_contact,relation_contact;
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        relationContact = spinner.getSelectedItem().toString();
+        /*-----------------------------------------------------------------------------------*/
 
-        existing_contact=findViewById(R.id.existing_contacts_button);
+        /*----------------------------   EXISTING CONTACTS   ---------------------------*/
+        existing_contact = findViewById(R.id.existing_contacts_button);
 
         existing_contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ContactModel m=new ContactModel(1, "111111","khadija", "mother");
-                Toast.makeText(getApplicationContext(), m.getPhoneNo().toString(), Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(Intent.ACTION_PICK);
-//                intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
-//                startActivityForResult(intent,REQUEST_SELECT_CONTACT);
+//                ContactModel m=new ContactModel(1, "111111","khadija", "mother");
+//                Toast.makeText(getApplicationContext(), m.getPhoneNo().toString(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+                startActivityForResult(intent, REQUEST_SELECT_CONTACT);
+
 
             }
         });
+        /*-------------------------------------------------------------------*/
 
-        number_contact=findViewById(R.id.contact_phone);
-        name_contact=findViewById(R.id.contact_name);
+        /*----------------------------   ADD CONTACTS   ---------------------------*/
+        add_contact=findViewById(R.id.addContact);
+        add_contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //add the data in DB
+                ContactModel contact_user=new ContactModel( numberContact,nameContact, relationContact);
+                d.addcontact(contact_user);
+            }
+        });
+        /*-------------------------------------------------------------------*/
+
+
+
+
 
     }
 
@@ -69,10 +99,10 @@ EditText number_contact,name_contact,relation_contact;
                 String name = cursor.getString(nameIndex);
                 number_contact.setText(number);
                 name_contact.setText(name);
-                Toast.makeText(this, ""+number+"  "+name, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "" + number + "  " + name, Toast.LENGTH_SHORT).show();
             }
         }
 
-
     }
+
 }

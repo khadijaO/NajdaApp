@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_ID = "id";
     private static final String NAME = "Name";
     private static final String PHONENO = "PhoneNo";
-
+    private static final String RELATION = "Relation";
 
     public DbHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -33,10 +35,13 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         // create the table for the first time
-        String CREATE_COUNTRY_TABLE = "CREATE TABLE " + TABLE_NAME + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + NAME + " TEXT,"
-                + PHONENO + " TEXT" + ")";
-        db.execSQL(CREATE_COUNTRY_TABLE);
+        String CREATE_CONTACT_TABLE = "CREATE TABLE " + TABLE_NAME + "("
+                + KEY_ID + " INTEGER PRIMARY KEY," + NAME + " TEXT, "
+                + PHONENO + " TEXT, " +RELATION + " TEXT)";
+//        Log.d("hi", CREATE_CONTACT_TABLE);
+        Log.d("hi", "3333333333333333333333333333333333333");
+
+        db.execSQL(CREATE_CONTACT_TABLE);
     }
 
     @Override
@@ -50,8 +55,12 @@ public class DbHelper extends SQLiteOpenHelper {
         ContentValues c=new ContentValues();
         c.put(NAME,contact.getName());
         c.put(PHONENO,contact.getPhoneNo());
+        c.put(RELATION,contact.getRelation());
         db.insert(TABLE_NAME,null,c);
         db.close();
+        Log.e("hi", "error");
+
+//        Toast.makeText(get, "", Toast.LENGTH_SHORT).show();
     }
 
     // method to retrieve all the contacts in List
@@ -63,7 +72,7 @@ public class DbHelper extends SQLiteOpenHelper {
         if(c.moveToFirst()) {
             do {
 
-                list.add(new ContactModel(c.getInt(0),c.getString(1),c.getString(2)));
+                list.add(new ContactModel(c.getString(1),c.getString(2),"father"));
 
             } while (c.moveToNext());
         }

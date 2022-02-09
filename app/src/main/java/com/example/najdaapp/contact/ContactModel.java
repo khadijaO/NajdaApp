@@ -6,9 +6,9 @@ public class ContactModel {
     private String name;
     private String relation;
 
-    public ContactModel(int id, String phoneNo, String name, String relation) {
-        this.id = id;
-        this.phoneNo = validate(phoneNo);
+    public ContactModel( String phoneNo, String name, String relation) {
+
+        this.phoneNo = phoneNo;
         this.name = name;
         this.relation = relation;
     }
