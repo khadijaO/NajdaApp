@@ -12,6 +12,8 @@ import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.*;
 
+import com.example.najdaapp.contact.ContactModel;
+
 public class UserContact extends AppCompatActivity {
 Button existing_contact;
 EditText number_contact,name_contact,relation_contact;
@@ -37,10 +39,11 @@ EditText number_contact,name_contact,relation_contact;
         existing_contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
-                startActivityForResult(intent,REQUEST_SELECT_CONTACT);
+                ContactModel m=new ContactModel(1, "111111","khadija", "mother");
+                Toast.makeText(getApplicationContext(), m.getPhoneNo().toString(), Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(Intent.ACTION_PICK);
+//                intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+//                startActivityForResult(intent,REQUEST_SELECT_CONTACT);
 
             }
         });
