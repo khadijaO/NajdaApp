@@ -125,8 +125,8 @@
         android:layout_marginEnd="21dp"
         android:layout_marginRight="21dp"
         android:layout_marginBottom="140dp"
-        android:backgroundTint="@color/Red"
         android:background="@drawable/button_login_bg"
+        android:backgroundTint="@color/redColor"
         android:text="@string/reset" />
 
     <Button
@@ -179,8 +179,8 @@
         android:layout_marginRight="77dp"
         android:layout_marginBottom="10dp"
         android:background="@color/dotDisactivated"
-        android:textColor="@color/colorWhite"
-        android:text="@string/manage_contact" />
+        android:text="@string/manage_contact"
+        android:textColor="@color/colorWhite" />
 
     <ImageView
         android:id="@+id/imageView2"

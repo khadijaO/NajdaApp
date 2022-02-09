@@ -17,7 +17,7 @@ import com.example.najdaapp.contact.ContactModel;
 import com.example.najdaapp.contact.DbHelper;
 
 public class UserContact extends AppCompatActivity {
-    Button existing_contact,add_contact,reset_form;
+    Button existing_contact,add_contact,reset_form,manage_contact;
     EditText number_contact, name_contact, relation_contact;
     String numberContact, nameContact, relationContact;
     private static final int REQUEST_SELECT_CONTACT = 1;
@@ -32,8 +32,8 @@ public class UserContact extends AppCompatActivity {
         number_contact = findViewById(R.id.contact_phone);
         name_contact = findViewById(R.id.contact_name);
 
-        numberContact=number_contact.getText().toString();
-        nameContact=name_contact.getText().toString();
+//        numberContact=number_contact.getText().toString();
+//        nameContact=name_contact.getText().toString();
 
         /*----------------------------   RELATION SPINNER  ---------------------------*/
 //        set relations
@@ -70,9 +70,33 @@ public class UserContact extends AppCompatActivity {
         add_contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                numberContact=number_contact.getText().toString();
+                nameContact=name_contact.getText().toString();
                 //add the data in DB
                 ContactModel contact_user=new ContactModel( numberContact,nameContact, relationContact);
-                d.addcontact(contact_user);
+                d.addContact(contact_user);
+            }
+        });
+        /*-------------------------------------------------------------------*/
+        /*----------------------------   RESET CONTACTS   ---------------------------*/
+        reset_form=findViewById(R.id.ResetContact);
+        reset_form.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //add the data in DB
+//                relation_contact.setText("");
+                name_contact.setText("");
+                number_contact.setText("");
+            }
+        });
+        /*-------------------------------------------------------------------*/
+        /*----------------------------   MANAGE CONTACTS   ---------------------------*/
+        manage_contact=findViewById(R.id.manage_contacts);
+        manage_contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Intent i=new Intent(getApplicationContext(),ContactManager.class);
+               startActivity(i);
             }
         });
         /*-------------------------------------------------------------------*/

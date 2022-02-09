@@ -24,7 +24,8 @@ public class DbHelper extends SQLiteOpenHelper {
     // Country Table Columns names
     private static final String KEY_ID = "id";
     private static final String NAME = "Name";
-    private static final String PHONENO = "PhoneNo";
+    private static final String H = "Phone";
+    private static final String PH = "PhoneNo";
     private static final String RELATION = "Relation";
 
     public DbHelper(Context context){
@@ -36,9 +37,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
         // create the table for the first time
         String CREATE_CONTACT_TABLE = "CREATE TABLE " + TABLE_NAME + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + NAME + " TEXT, "
-                + PHONENO + " TEXT, " +RELATION + " TEXT)";
-//        Log.d("hi", CREATE_CONTACT_TABLE);
+                + KEY_ID + " INTEGER PRIMARY KEY, "+ PH + " TEXT, "+ NAME + " TEXT, "
+                 + RELATION + " TEXT )";
+//        Log.d("h i", CREATE_CONTACT_TABLE);
         Log.d("hi", "3333333333333333333333333333333333333");
 
         db.execSQL(CREATE_CONTACT_TABLE);
@@ -50,15 +51,23 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     // method to add the contact
-    public void addcontact(ContactModel contact){
-        SQLiteDatabase db=this.getWritableDatabase();
-        ContentValues c=new ContentValues();
-        c.put(NAME,contact.getName());
-        c.put(PHONENO,contact.getPhoneNo());
-        c.put(RELATION,contact.getRelation());
-        db.insert(TABLE_NAME,null,c);
-        db.close();
-        Log.e("hi", "error");
+    public void addContact(ContactModel contact){
+//        SQLiteDatabase db=this.getWritableDatabase();
+//        ContentValues c=new ContentValues();
+//        c.put(NAME,contact.getName());
+//        c.put(PH,contact.getPhoneNo());
+//        c.put(RELATION,contact.getRelation());
+//        db.insert(TABLE_NAME,null,c);
+//        db.close();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DbHelper.PH, contact.getPhoneNo());
+        values.put(DbHelper.NAME, contact.getName());
+        values.put(DbHelper.RELATION, contact.getRelation());
+        long newRowId = db.insert (DbHelper.TABLE_NAME, null, values);
+
+        Log.e("hi", "####################################");
 
 //        Toast.makeText(get, "", Toast.LENGTH_SHORT).show();
     }

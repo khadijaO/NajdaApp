@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/drawable/delete_icon.xml" value="0.1" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/drawable/edit_icon.xml" value="0.1" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/activity_contact_manager.xml" value="0.15217391304347827" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/activity_slave.xml" value="0.25" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/activity_splash_activity.xml" value="0.1" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/activity_user_contact.xml" value="0.2" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/header.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/item_image.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/login_tab_fragment.xml" value="0.1585144927536232" />
       </map>
     </option>
   </component>

@@ -27,7 +27,10 @@
     </string>
     <string name="manage_contact">Manage contacts
     </string>
-    <string name="reset">Reset
+    <string name="modify">Modify
+    </string>
+    <string name="delete">Delete
+    </string><string name="reset">Reset
     </string>
     <string-array name="relation">
         <item>Father</item>
