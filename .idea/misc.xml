@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/activity_user_contact.xml" value="0.22" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/activity_splash_activity.xml" value="0.1" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Project/NajdaApp/app/src/main/res/layout/activity_user_contact.xml" value="0.2" />
       </map>
     </option>
   </component>

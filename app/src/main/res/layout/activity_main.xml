@@ -55,9 +55,9 @@
         android:layout_marginTop="660dp"
         android:layout_marginRight="20dp"
         android:background="#EBF2AB"
-        android:textStyle="bold"
+        android:text="GET STARTED"
 
-        android:text="GET STARTED"></Button>
+        android:textStyle="bold"></Button>
 
 
 </RelativeLayout>

@@ -17,7 +17,7 @@
     <string name="existing_contact">Add an existing contact
 
     </string>
-    <string name="addContact">Add contact
+    <string name="addContact">Confirm
     </string>
     <string name="relation_contact_hint">RelationShip
     </string>
@@ -25,5 +25,20 @@
     </string>
     <string name="name_contact_hint">Contact name
     </string>
+    <string name="manage_contact">Manage contacts
+    </string>
+    <string name="reset">Reset
+    </string>
+    <string-array name="relation">
+        <item>Father</item>
+        <item>Mother</item>
+        <item>Sister</item>
+        <item>Brother</item>
+        <item>Uncle</item>
+        <item>Cousin</item>
+        <item>Friend</item>
+        <item>Teacher</item>
+        <item>Other...</item>
+    </string-array>
     <!--    CONTACT FORM -->
 </resources>
