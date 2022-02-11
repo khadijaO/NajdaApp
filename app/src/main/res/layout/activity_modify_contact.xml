@@ -17,10 +17,10 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="63dp"
         android:layout_marginLeft="63dp"
-        android:layout_marginTop="156dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginRight="66dp"
-        android:text="@string/contact_description"
+        android:layout_marginTop="161dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:text="@string/contact_modify_description"
         android:textAlignment="center"
         android:textColor="@color/dotActivated"
         android:textSize="20sp"
@@ -119,24 +119,6 @@
         android:layout_marginBottom="141dp"
         android:background="@drawable/button_login_bg"
         android:text="@string/addContact" />
-
-    <Button
-        android:id="@+id/existing_contacts_button"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginLeft="134dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginRight="112dp"
-        android:layout_marginBottom="259dp"
-        android:background="@drawable/button_login_bg"
-        android:drawableLeft="@drawable/icon_contacts"
-        android:text="@string/existing_contact" />
 
     <Button
         android:id="@+id/manage_contacts"

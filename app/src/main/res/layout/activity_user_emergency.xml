@@ -20,14 +20,15 @@
         android:layout_marginTop="156dp"
         android:layout_marginEnd="66dp"
         android:layout_marginRight="66dp"
-        android:text="@string/contact_description"
+        android:text="@string/emergency_description"
         android:textAlignment="center"
         android:textColor="@color/dotActivated"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/contact_name"
+
+        android:id="@+id/emergency_name"
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:layout_below="@+id/textHint"
@@ -38,55 +39,35 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="63dp"
         android:layout_marginLeft="63dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginRight="51dp"
         android:background="@drawable/edit_text_login_bg"
-        android:hint="@string/name_contact_hint"
+        android:hint="@string/name_emergency_hint"
         android:textAlignment="center" />
 
+
     <EditText
-        android:id="@+id/contact_phone"
+        android:id="@+id/emergency_number"
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:layout_below="@+id/contact_name"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="63dp"
+        android:layout_marginStart="59dp"
         android:layout_marginLeft="63dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginRight="53dp"
+        android:layout_marginTop="258dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginRight="57dp"
         android:background="@drawable/edit_text_login_bg"
-        android:hint="@string/phone_contact_hint"
+        android:hint="@string/phone_emegency_hint"
         android:inputType="number"
         android:textAlignment="center" />
 
-    <Spinner
-        android:id="@+id/relation_contact"
-        android:layout_width="wrap_content"
-        android:layout_height="57dp"
-        android:layout_below="@+id/contact_phone"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="63dp"
-        android:layout_marginLeft="63dp"
-        android:layout_marginTop="32dp"
-
-        android:layout_marginEnd="51dp"
-        android:layout_marginRight="51dp"
-        android:layout_marginBottom="352dp"
-        android:background="@drawable/edit_text_login_bg"
-        android:textAlignment="center"
-        android:textColor="#070707"></Spinner>
-
     <Button
-        android:id="@+id/ResetContact"
+        android:id="@+id/ResetEmergency"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:layout_alignParentStart="true"
@@ -104,7 +85,7 @@
         android:text="@string/reset" />
 
     <Button
-        android:id="@+id/addContact"
+        android:id="@+id/addEmergency"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:layout_alignParentStart="true"
@@ -121,25 +102,7 @@
         android:text="@string/addContact" />
 
     <Button
-        android:id="@+id/existing_contacts_button"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginLeft="134dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginRight="112dp"
-        android:layout_marginBottom="259dp"
-        android:background="@drawable/button_login_bg"
-        android:drawableLeft="@drawable/icon_contacts"
-        android:text="@string/existing_contact" />
-
-    <Button
-        android:id="@+id/manage_contacts"
+        android:id="@+id/manageEmergency"
         android:layout_width="552dp"
         android:layout_height="64dp"
         android:layout_alignParentStart="true"
@@ -153,7 +116,7 @@
         android:layout_marginRight="77dp"
         android:layout_marginBottom="10dp"
         android:background="@color/dotDisactivated"
-        android:text="@string/manage_contact"
+        android:text="@string/manage_emergency"
         android:textColor="@color/colorWhite" />
 
     <ImageView
@@ -165,8 +128,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="63dp"
         android:layout_marginLeft="63dp"
-        android:layout_marginEnd="143dp"
-        android:layout_marginRight="143dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginRight="145dp"
         android:layout_marginBottom="656dp"
         android:background="@drawable/contact"
         tools:src="@tools:sample/avatars" />

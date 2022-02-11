@@ -1,18 +1,24 @@
 package com.example.najdaapp.contactAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.najdaapp.R;
 import com.example.najdaapp.contact.ContactModel;
+import com.example.najdaapp.contact.DbHelper;
+import com.example.najdaapp.contact.ModifyContact;
 
 import java.util.ArrayList;
 
 public class CustomAdapter extends BaseAdapter {
+    DbHelper d;
     Context context;//i don't know what does it mean
     ArrayList<ContactModel> arrayList;
 
@@ -39,10 +45,49 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View convertView, ViewGroup viewGroup) {
+    public View getView(int i, View convertView, final ViewGroup viewGroup) {
+
+       d=new DbHelper(context);
+
         if (convertView ==  null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.activity_slave, viewGroup, false);
         }
+        Button Button1= (Button)  convertView  .findViewById(R.id.modify_contact);
+        final TextView phone= (TextView)  convertView  .findViewById(R.id.phone);
+
+        Button1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ContactModel contactSelected =d.getContact(phone.getText().toString());
+                Intent i=new Intent(context, ModifyContact.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.putExtra("contact", contactSelected);
+                context.startActivity(i);
+//                Toast.makeText(context, ""+contactSelected.getRelation(), Toast.LENGTH_SHORT).show();
+
+            }
+
+        });
+
+
+
+        Button Button2= (Button)  convertView  .findViewById(R.id.Delete_contact);
+        Button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ContactModel contactSelected =d.getContact(phone.getText().toString());
+                d.deleteContact(contactSelected);
+
+                Toast.makeText(context, "contact Deleted please refresh", Toast.LENGTH_SHORT).show();
+                notifyDataSetInvalidated();
+                notifyDataSetChanged();
+
+
+            }
+        });
 
         TextView number = (TextView) convertView.findViewById(R.id.phone);
         TextView name = (TextView) convertView.findViewById(R.id.name);

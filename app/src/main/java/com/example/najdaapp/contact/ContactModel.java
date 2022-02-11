@@ -1,6 +1,9 @@
 package com.example.najdaapp.contact;
 
-public class ContactModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ContactModel  implements Parcelable {
     private int id;
     private String phoneNo;
     private String name;
@@ -12,6 +15,25 @@ public class ContactModel {
         this.name = name;
         this.relation = relation;
     }
+
+    protected ContactModel(Parcel in) {
+        id = in.readInt();
+        phoneNo = in.readString();
+        name = in.readString();
+        relation = in.readString();
+    }
+
+    public static final Creator<ContactModel> CREATOR = new Creator<ContactModel>() {
+        @Override
+        public ContactModel createFromParcel(Parcel in) {
+            return new ContactModel(in);
+        }
+
+        @Override
+        public ContactModel[] newArray(int size) {
+            return new ContactModel[size];
+        }
+    };
 
     private String validate(String phone) {
 
@@ -70,5 +92,18 @@ public class ContactModel {
 
     public void setRelation(String relation) {
         this.relation = relation;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(phoneNo);
+        parcel.writeString(name);
+        parcel.writeString(relation);
     }
 }

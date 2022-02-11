@@ -12,9 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ContactManager"
+            android:name=".medias.UserMedias"
             android:exported="false" />
-        <activity android:name=".UserContact" />
+        <activity
+            android:name=".emergency.ManageEmergency"
+            android:exported="false" />
+        <activity
+            android:name=".emergency.UserEmergency"
+            android:exported="false" />
+        <activity
+            android:name=".contact.ModifyContact"
+            android:exported="false" />
+        <activity
+            android:name=".contactAdapter.Contact_slave"
+            android:exported="false" />
+        <activity
+            android:name=".contact.ContactManager"
+            android:exported="false" />
+        <activity android:name=".contact.UserContact" />
         <activity android:name=".userProfile" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />

@@ -14,7 +14,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="222dp"
+            android:layout_height="223dp"
             android:layout_marginTop="40dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="10dp"
@@ -75,20 +75,20 @@
                     android:weightSum="3">
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/Delete_contact"
                         android:layout_width="2dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="30dp
 "
                         android:layout_weight="1"
                         android:background="@drawable/button_login_bg"
-android:drawableLeft="@drawable/icon_logout"
                         android:backgroundTint="@color/redColor"
+                        android:drawableLeft="@drawable/icon_logout"
                         android:paddingLeft="10dp"
                         android:text="@string/delete" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/modify_contact"
                         android:layout_width="2dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

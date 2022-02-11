@@ -27,6 +27,8 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String H = "Phone";
     private static final String PH = "PhoneNo";
     private static final String RELATION = "Relation";
+    private static final String SQL_DELETE_TABLE =
+            "DROP TABLE IF EXISTS " + TABLE_NAME;
 
     public DbHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -50,15 +52,52 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
+    //    @Override
+//    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+//        sqLiteDatabase.execSQL(SQL_DELETE_TABLE);
+//        onCreate(sqLiteDatabase);
+//    }
+    public boolean checkContact(String name, String phone) {
+
+
+
+        return true;
+
+    }
+
+//    @Override
+//    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+//        super.onDowngrade(db, oldVersion, newVersion);
+//    }
+
+    public  ContactModel getContact(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME, new String[] {
+                        NAME,PH,RELATION  }, PH + "=?",
+                new String[] { id }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+
+        ContactModel contact = new ContactModel(cursor.getString(1),
+                cursor.getString(0), cursor.getString(2));
+        // return country
+        return contact;
+    }
+
+    public void deleteContact(ContactModel c){
+
+
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.delete(TABLE_NAME, PH + " = ?",
+                    new String[] { String.valueOf(c.getPhoneNo()) });
+            db.close();
+
+    }
+
     // method to add the contact
     public void addContact(ContactModel contact){
-//        SQLiteDatabase db=this.getWritableDatabase();
-//        ContentValues c=new ContentValues();
-//        c.put(NAME,contact.getName());
-//        c.put(PH,contact.getPhoneNo());
-//        c.put(RELATION,contact.getRelation());
-//        db.insert(TABLE_NAME,null,c);
-//        db.close();
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -81,7 +120,7 @@ public class DbHelper extends SQLiteOpenHelper {
         if(c.moveToFirst()) {
             do {
 
-                list.add(new ContactModel(c.getString(1),c.getString(2),"father"));
+                list.add(new ContactModel(c.getString(1),c.getString(2),c.getString(3)));
 
             } while (c.moveToNext());
         }
@@ -103,13 +142,18 @@ public class DbHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    // Deleting single country
-    public void deleteContact(ContactModel contact) {
+    public void updateContact(ContactModel contact,String phone) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int i=db.delete(TABLE_NAME,KEY_ID + " = ?",
-                new String[] { String.valueOf(contact.getId()) });
 
-        db.close();
+        ContentValues values = new ContentValues();
+        values.put(NAME, contact.getName());
+        values.put(PH, contact.getPhoneNo());
+        values.put(RELATION, contact.getRelation());
+
+
+        // updating row
+         db.update(TABLE_NAME, values, PH + " = ?",
+                new String[] { phone});
     }
 }
 

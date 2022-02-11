@@ -14,6 +14,8 @@
     <!--    CONTACT FORM-->
     <string name="contact_description">Add  your favorite contacts
     </string>
+    <string name="contact_modify_description">Modify this contact
+    </string>
     <string name="existing_contact">Add an existing contact
 
     </string>
@@ -25,12 +27,23 @@
     </string>
     <string name="name_contact_hint">Contact name
     </string>
-    <string name="manage_contact">Manage contacts
+    <string name="manage_contact">Check contacts
     </string>
+
     <string name="modify">Modify
     </string>
     <string name="delete">Delete
-    </string><string name="reset">Reset
+    </string>
+    <string name="reset">Reset
+    </string>
+
+    <string name="name_phoneError">This field is required
+    </string>
+    <string name="phoneFormatError">This field Should be a valid number phone
+    </string>
+    <string name="successAlert">ADDED SUCCESSFULLY :), Want you check all emergency contacts"
+    </string>
+    <string name="failureAlert">Reset
     </string>
     <string-array name="relation">
         <item>Father</item>
@@ -43,5 +56,33 @@
         <item>Teacher</item>
         <item>Other...</item>
     </string-array>
-    <!--    CONTACT FORM -->
+    <!---    CONTACT FORM                          -->
+
+
+    <!--    EMERGENCY NUMBER                   -->
+
+    <string name="emergency_description">Add  your emergency number
+    </string>
+
+    <string name="phone_emegency_hint">Phone number
+    </string>
+    <string name="name_emergency_hint">Emergency type
+    </string>
+    <string name="manage_emergency">Check Emergency Numbers
+    </string>
+    <string name="Ambulance">Ambulance
+    </string>
+    <string name="Fire_brigade">Fire brigade
+    </string>
+    <string name="Directory_enquiries">Directory enquiries
+    </string>
+    <string name="Police">Police
+    </string>
+    <string name="Gendarmerie_Royale">Gendarmerie Royale
+    </string>
+
+    <string name="setEmergency">Set Default number
+    </string>
+
+    <!--    EMERGENCY NUMBER                   -->
 </resources>

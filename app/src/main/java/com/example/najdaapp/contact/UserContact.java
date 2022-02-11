@@ -1,25 +1,27 @@
-package com.example.najdaapp;
+package com.example.najdaapp.contact;
 
 import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Contacts;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
 
-import com.example.najdaapp.contact.ContactModel;
-import com.example.najdaapp.contact.DbHelper;
+import com.example.najdaapp.R;
 
 public class UserContact extends AppCompatActivity {
     Button existing_contact,add_contact,reset_form,manage_contact;
     EditText number_contact, name_contact, relation_contact;
     String numberContact, nameContact, relationContact;
+    private AlertDialog alertDialog;
+    private AlertDialog.Builder builder;
     private static final int REQUEST_SELECT_CONTACT = 1;
     DbHelper d;
 
@@ -73,8 +75,12 @@ public class UserContact extends AppCompatActivity {
                 numberContact=number_contact.getText().toString();
                 nameContact=name_contact.getText().toString();
                 //add the data in DB
+               boolean  isAllFieldsChecked = CheckAllFields();
+if(isAllFieldsChecked){
                 ContactModel contact_user=new ContactModel( numberContact,nameContact, relationContact);
                 d.addContact(contact_user);
+                showAlert("Contact added , check All Contacts");
+}
             }
         });
         /*-------------------------------------------------------------------*/
@@ -87,6 +93,7 @@ public class UserContact extends AppCompatActivity {
 //                relation_contact.setText("");
                 name_contact.setText("");
                 number_contact.setText("");
+                spinner.setSelection(0);
             }
         });
         /*-------------------------------------------------------------------*/
@@ -95,7 +102,7 @@ public class UserContact extends AppCompatActivity {
         manage_contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent i=new Intent(getApplicationContext(),ContactManager.class);
+               Intent i=new Intent(getApplicationContext(), ContactManager.class);
                startActivity(i);
             }
         });
@@ -106,7 +113,110 @@ public class UserContact extends AppCompatActivity {
 
 
     }
+    public  boolean CheckAllFields() {
+        if (name_contact.length() == 0) {
+            name_contact.setError(getString(R.string.name_phoneError));
+            return false;
+        }
 
+        if (number_contact.length() == 0) {
+            number_contact.setError(getString(R.string.name_phoneError) );
+            return false;
+        }
+
+        if (!android.util.Patterns.PHONE.matcher(numberContact).matches()) {
+            number_contact.setError(getString(R.string.phoneFormatError));
+            return false;
+        }
+        // after all validation return true.
+        return true;
+    }
+
+    public void showAlert(String message) {
+//       builder=new AlertDialog.Builder(getApplicationContext());
+//       builder.setTitle("Success!!");
+//       builder.setMessage(message);
+//       builder.setCancelable(true);
+//       builder.setIcon(R.drawable.rate_us_icon);
+//       builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//           @Override
+//           public void onClick(DialogInterface dialogInterface, int i) {
+//               alertDialog.cancel();
+//               Intent j=new Intent(getApplicationContext(),ContactManager.class);
+//               startActivity(j);
+//           }
+//       }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+//           @Override
+//           public void onClick(DialogInterface dialogInterface, int i) {
+//               alertDialog.cancel();
+//
+//           }
+//       });
+//       alertDialog=builder.create();
+//       alertDialog.show();
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+//        AlertDialog.Builder builder
+//                = new AlertDialog
+//                .Builder(getApplicationContext());
+//
+//        // Set the message show for the Alert time
+//        builder.setMessage("Do you want to exit ?");
+//
+//        // Set Alert Title
+//        builder.setTitle("Alert !");
+//
+//        // Set Cancelable false
+//        // for when the user clicks on the outside
+//        // the Dialog Box then it will remain show
+//        builder.setCancelable(false);
+//
+//        // Set the positive button with yes name
+//        // OnClickListener method is use of
+//        // DialogInterface interface.
+//
+//        builder
+//                .setPositiveButton(
+//                        "Yes",
+//                        new DialogInterface
+//                                .OnClickListener() {
+//
+//                            @Override
+//                            public void onClick(DialogInterface dialog,
+//                                                int which)
+//                            {
+//
+//                                // When the user click yes button
+//                                // then app will close
+//                                finish();
+//                            }
+//                        });
+//
+//        // Set the Negative button with No name
+//        // OnClickListener method is use
+//        // of DialogInterface interface.
+//        builder
+//                .setNegativeButton(
+//                        "No",
+//                        new DialogInterface
+//                                .OnClickListener() {
+//
+//                            @Override
+//                            public void onClick(DialogInterface dialog,
+//                                                int which)
+//                            {
+//
+//                                // If user click no
+//                                // then dialog box is canceled.
+//                                dialog.cancel();
+//                            }
+//                        });
+//
+//        // Create the Alert dialog
+//        AlertDialog alertDialog = builder.create();
+//
+//        // Show the Alert Dialog box
+//        alertDialog.show();
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

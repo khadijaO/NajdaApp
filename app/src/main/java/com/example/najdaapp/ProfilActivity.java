@@ -11,6 +11,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.najdaapp.contact.UserContact;
+import com.example.najdaapp.emergency.UserEmergency;
+import com.example.najdaapp.medias.UserMedias;
 import com.google.android.material.navigation.NavigationView;
 
 public class ProfilActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -62,9 +65,22 @@ switch (menuItem.getItemId()){
         Intent i = new Intent(ProfilActivity.this, userProfile.class);
         startActivity(i);
         break;
+    case R.id.nav_home:
+        Intent m= new Intent(ProfilActivity.this, MainActivity.class);
+        startActivity(m);
+        break;
     case R.id.nav_contact:
         Intent j= new Intent(ProfilActivity.this, UserContact.class);
         startActivity(j);
+        break;
+
+    case R.id.nav_call:
+        Intent k= new Intent(ProfilActivity.this, UserEmergency.class);
+        startActivity(k);
+        break;
+    case R.id.nav_medias:
+        Intent l= new Intent(ProfilActivity.this, UserMedias.class);
+        startActivity(l);
         break;
 default:
 

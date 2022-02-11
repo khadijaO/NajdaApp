@@ -1,4 +1,4 @@
-package com.example.najdaapp;
+package com.example.najdaapp.contact;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -7,10 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.najdaapp.R;
 import com.example.najdaapp.contact.ContactModel;
 import com.example.najdaapp.contact.DbHelper;
 import com.example.najdaapp.contactAdapter.CustomAdapter;
@@ -31,21 +33,22 @@ DbHelper d;
         d=new DbHelper(getApplicationContext());
 
         ArrayList<ContactModel>l;
-        l= (ArrayList<ContactModel>) d.getAllContacts();
 
-//        for (ContactModel object : l) {
-//            text.setText(text.getText()+object.getName());
-//        }
+        l= (ArrayList<ContactModel>) d.getAllContacts();
         ListView lv=findViewById(R.id.list);
         CustomAdapter adapter = new CustomAdapter(getApplicationContext(), l);
         lv.setAdapter(adapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Toast.makeText(getApplicationContext()," vous avez cliqué sur la ville de :"+i,Toast.LENGTH_SHORT).show();
-            }
-        });}
+
+    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            String selectedItem = (String) adapterView.getItemAtPosition(i);
+            Toast.makeText(getApplicationContext(), selectedItem+"  contact", Toast.LENGTH_SHORT).show();
+
+        }
+    });
+    }
 
 
 
