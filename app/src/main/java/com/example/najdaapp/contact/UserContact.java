@@ -1,8 +1,13 @@
 package com.example.najdaapp.contact;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -11,12 +16,19 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
+import com.example.najdaapp.MainActivityShake;
+import com.example.najdaapp.ProfilActivity;
 import com.example.najdaapp.R;
+import com.example.najdaapp.emergency.UserEmergency;
+import com.example.najdaapp.medias.UserMedias;
+import com.example.najdaapp.userProfile;
+import com.google.android.material.navigation.NavigationView;
 
-public class UserContact extends AppCompatActivity {
+public class UserContact extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Button existing_contact,add_contact,reset_form,manage_contact;
     EditText number_contact, name_contact, relation_contact;
     String numberContact, nameContact, relationContact;
@@ -25,10 +37,17 @@ public class UserContact extends AppCompatActivity {
     private static final int REQUEST_SELECT_CONTACT = 1;
     DbHelper d;
 
+//    -------------------
+DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
+    MenuItem profile;
+//    ------------------
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-                Log.d("hi", "-----------------------");
         d=new DbHelper(this);
         setContentView(R.layout.activity_user_contact);
         number_contact = findViewById(R.id.contact_phone);
@@ -36,6 +55,22 @@ public class UserContact extends AppCompatActivity {
 
 //        numberContact=number_contact.getText().toString();
 //        nameContact=name_contact.getText().toString();
+
+//        -------------------------------
+//        Toolbar toolbar=findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        drawerLayout=findViewById(R.id.drawerLayout);
+//        navigationView=findViewById(R.id.nav_view);
+//        toolbar=findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        navigationView.bringToFront();
+//        ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(UserContact.this,drawerLayout,toolbar,R.string.title_slide1,R.string.text_slide2);
+//        drawerLayout.addDrawerListener(toggle);
+//        toggle.syncState();
+//        navigationView.setNavigationItemSelectedListener(this);
+//        navigationView.setCheckedItem(R.id.nav_contact);
+
+//        ------------------------------------
 
         /*----------------------------   RELATION SPINNER  ---------------------------*/
 //        set relations
@@ -238,5 +273,44 @@ if(isAllFieldsChecked){
         }
 
     }
+    @Override
+    public void onBackPressed() {// to avoid closing the app with back pressed
 
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else{
+            super.onBackPressed();}
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()){
+            case R.id.nav_profile:
+                Intent i = new Intent(UserContact.this, userProfile.class);
+                startActivity(i);
+                break;
+            case R.id.nav_home:
+                Intent m= new Intent(UserContact.this, MainActivityShake.class);
+                startActivity(m);
+                break;
+            case R.id.nav_contact:
+                Intent j= new Intent(UserContact.this, UserContact.class);
+                startActivity(j);
+                break;
+
+            case R.id.nav_call:
+                Intent k= new Intent(UserContact.this, UserEmergency.class);
+                startActivity(k);
+                break;
+            case R.id.nav_medias:
+                Intent l= new Intent(UserContact.this, UserMedias.class);
+                startActivity(l);
+                break;
+            default:
+
+
+        }
+        return true;
+    }
 }

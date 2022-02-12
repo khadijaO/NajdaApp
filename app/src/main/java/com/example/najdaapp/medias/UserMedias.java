@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.najdaapp.MainActivity;
+import com.example.najdaapp.Message.Message;
 import com.example.najdaapp.ProfilActivity;
 import com.example.najdaapp.R;
 import com.example.najdaapp.contact.UserContact;
@@ -72,6 +73,10 @@ public class UserMedias extends AppCompatActivity implements NavigationView.OnNa
             case R.id.nav_medias:
                 Intent l= new Intent(UserMedias.this, UserMedias.class);
                 startActivity(l);
+                break;
+            case R.id.nav_message:
+                Intent ii= new Intent(UserMedias.this, Message.class);
+                startActivity(ii);
                 break;
             default:
 

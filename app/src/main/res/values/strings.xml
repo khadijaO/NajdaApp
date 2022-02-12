@@ -85,4 +85,16 @@
     </string>
 
     <!--    EMERGENCY NUMBER                   -->
+
+
+<!--            Message customised             -->
+    <string name="messageDescription">Change the emergency Message
+    </string>
+    <string name="Body">set the body of your message
+    </string>
+    <string name="greeting">set the greeting expression
+    </string>
+    <string name="includeReceiverName">Want you include the receiver name?
+    </string>
+<!--                    -->
 </resources>

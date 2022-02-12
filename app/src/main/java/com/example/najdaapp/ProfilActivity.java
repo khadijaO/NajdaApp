@@ -66,7 +66,7 @@ switch (menuItem.getItemId()){
         startActivity(i);
         break;
     case R.id.nav_home:
-        Intent m= new Intent(ProfilActivity.this, MainActivity.class);
+        Intent m= new Intent(ProfilActivity.this,MainActivityShake.class);
         startActivity(m);
         break;
     case R.id.nav_contact:

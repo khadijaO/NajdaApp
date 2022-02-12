@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.najdaapp.Message.Message;
+
 public class LoginTabFragment extends Fragment {
 
     Button login,register;
@@ -28,7 +30,7 @@ public class LoginTabFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent i=new Intent(getContext(),ProfilActivity.class);
+                Intent i=new Intent(getContext(), Message.class);
                 startActivity(i);
             }
         });
